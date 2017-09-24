@@ -1,0 +1,23 @@
+<h1>New Cocktail</h1>
+
+
+<%= form_with scope: :cocktail, url: cocktails_path, local: true do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+
+  <p>
+    <%= form.label :ingredients %><br>
+    <%= form.text_area :text_area %>
+  </p>
+
+  <p>
+    <%= form.label :method %><br>
+    <%= form.text_area :text_area %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>

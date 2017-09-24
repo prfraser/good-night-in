@@ -9,15 +9,17 @@
 
   <p>
     <%= form.label :ingredients %><br>
-    <%= form.text_area :text_area %>
+    <%= form.text_area :ingredients %>
   </p>
 
   <p>
     <%= form.label :method %><br>
-    <%= form.text_area :text_area %>
+    <%= form.text_area :method %>
   </p>
 
   <p>
     <%= form.submit %>
   </p>
 <% end %>
+
+<%= link_to 'Back', cocktails_path %>

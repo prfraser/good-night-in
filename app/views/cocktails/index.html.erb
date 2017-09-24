@@ -1,0 +1,20 @@
+<h1>Listing cocktails</h1>
+ 
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Ingredients</th>
+    <th>Method</th>
+  </tr>
+ 
+  <% @cocktails.each do |cocktail| %>
+    <tr>
+      <td><%= cocktail.title %></td>
+      <td><%= cocktail.ingredients %></td>
+      <td><%= cocktail.method %></td>
+      <td><%= link_to 'Show', cocktail_path(cocktail) %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to 'New cocktail', new_cocktail_path %>

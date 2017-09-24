@@ -13,6 +13,10 @@
       <td><%= cocktail.ingredients %></td>
       <td><%= cocktail.method %></td>
       <td><%= link_to 'Show', cocktail_path(cocktail) %></td>
+      <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>
+      <td><%= link_to 'Destroy', cocktail_path(cocktail),
+           method: :delete,
+           data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>

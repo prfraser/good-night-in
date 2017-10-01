@@ -1,4 +1,4 @@
 class CocktailIngredient < ApplicationRecord
-	belongs_to :ingredient
-	belongs_to :cocktail
+  belongs_to :cocktail
+  belongs_to :ingredient
 end

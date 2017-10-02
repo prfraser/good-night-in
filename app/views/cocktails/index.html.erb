@@ -10,7 +10,7 @@
   <% @cocktails.each do |cocktail| %>
     <tr>
       <td><%= cocktail.title %></td>
-      <td><%= cocktail.ingredients %></td>
+      <td><% cocktail.ingredients.each do |ingredient| %> <%= ingredient.name %> <% end %></td>
       <td><%= cocktail.method %></td>
       <td><%= link_to 'Show', cocktail_path(cocktail) %></td>
       <td><%= link_to 'Edit', edit_cocktail_path(cocktail) %></td>

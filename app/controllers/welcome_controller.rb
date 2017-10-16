@@ -1,13 +1,14 @@
 class WelcomeController < ApplicationController
 	def index
-		# Old search function
-	  @cocktails = Cocktail.search(params[:term])
-
-	  # New search function. Still need to split search params into id's in an array.
-	  ingredient_ids = [1, 4]
-		cocktail_ingredients = CocktailIngredient.where(ingredient_id: ingredient_ids).select(:cocktail_id)
-		cocktail_ingredients = cocktail_ingredients.group(:cocktail_id).having('COUNT(ingredient_id) >= ?', ingredient_ids.count)
-		@cocktails = Cocktail.where(id: cocktail_ingredients.select(:cocktail_id))
+	  if params[:term].present?
+		  @ingredients = params[:term].split(' ')
+		  @ingredients.map! do |ingredient|
+		  	Ingredient.where(name: ingredient).ids[0]
+		  end
+			cocktail_ingredients = CocktailIngredient.where(ingredient_id: @ingredients).select(:cocktail_id)
+			cocktail_ingredients = cocktail_ingredients.group(:cocktail_id).having('COUNT(ingredient_id) >= ?', @ingredients.count)
+			@cocktails = Cocktail.where(id: cocktail_ingredients.select(:cocktail_id))
+		end
 	end
 
   private

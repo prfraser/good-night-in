@@ -14,11 +14,13 @@
   </thead>
 
   <tbody>
-    <tr>
-      <% for cocktail in @cocktails %>
-        <div class='cocktail'>
-            <strong> <%= cocktail.title %> </strong>
-        </div>
+     <tr>
+      <% if @cocktails %>
+        <% for cocktail in @cocktails %>
+          <div class='cocktail'>
+              <strong> <%= cocktail.title %> </strong>
+          </div>
+        <% end %>
       <% end %>
      </tr>       
   </tbody>
